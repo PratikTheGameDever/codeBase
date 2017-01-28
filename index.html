@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hello World!!!</title>
+    <style type="text/css">
+      body{
+        margin: 0px;
+      }
+      #main-header{
+        width: 100%;
+        height: 83px;
+        background-color: #e3e7ea;
+      }
+      .center{
+        margin: 0 auto;
+        position: relative;
+        max-width: 1400px;
+        padding-left: 24px;
+        padding-right: 24px;
+      }
+      .load_progress{
+        height: 3px;
+        margin-bottom: 20px;
+        position: relative;
+	      background: #555;
+        box-shadow: inset 0 -1px 1px rgba(255,255,255,0.3);
+      }
+      .home{
+        background-image: url('home_lg_black.png');
+        width: 50px;
+        height: 50px;
+        display: inline-block;
+      }
+      .articles,.about{
+        color: #666;
+        font-size: .9em;
+        font-weight: 600;
+        text-decoration: none;
+        margin-left: 10px;
+      }
+      nav{
+        text-align: right;
+        display: inline-block;
+        float: right;
+        margin-top: 25px;
+      }
+    </style>
+  </head>
+  <body>
+    <header id='main-header'>
+      <div class="load_progress">
+
+      </div>
+      <div class="center">
+        <span class="home"></span>
+        <nav>
+          <a class="articles" href="#">ARTICLES</a>
+          <a class="about" href="#">ABOUT</a>
+        </nav>
+      </div>
+    </header>
+  </body>
+</html>
