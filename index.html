@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Work In Progress</title>
+    <title>Go Green</title>
     <link href="styles.css" rel="stylesheet" type="text/css"/>
   </head>
   <body>
@@ -12,17 +12,20 @@
       <div class="center">
         <span class="home"></span>
         <nav>
-          <a class="articles" href="#">ARTICLES</a>
-          <a class="about" href="#">ABOUT</a>
+
         </nav>
       </div>
     </header>
     <div id="content">
       <div class="txt-center title">RECENT ENTRIES</div>
       <hr style="width: 200px;" />
-    </div>
-    <div class="read-progress">
+      <ul class="articles-container" id="articles-container">
 
+      </ul>
     </div>
+    <div class="read-progress"></div>
   </body>
+  <script src="lorem-ipsum-generator.js"></script>
+  <script src="script.js"></script>
+  <script>addArticles()</script>
 </html>
