@@ -9,7 +9,7 @@ function createArticles(){
   var li, a, time, date = new Date(), h2,p;
 
   li = createAndSetAttr('li',{class:'article'});
-  a = createAndSetAttr('a',{class:'article-preview', title:'test', href='#hello'+Math.random()});
+  a = createAndSetAttr('a',{class:'article-preview', title:'test', href:'#hello'+Math.random()});
 
   time = createAndSetAttr('time',{class:'article-date', datetime: date});
   setText(time, ['January', 'February', 'March', 'April','June','July','August','September','October','November','December'][date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear());
