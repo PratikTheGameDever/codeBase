@@ -46,15 +46,11 @@
   .articles-container{
     margin: auto;
     list-style-type: none;
+    width: 640px;
   }
   @media only screen and (max-width: 767px) {
     .articles-container{
       width: 90%;
-    }
-  }
-  @media only screen and (min-width: 768px) {
-    .articles-container{
-      width: 640px;
     }
   }
   .article{
