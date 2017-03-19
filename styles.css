@@ -52,7 +52,6 @@
     margin: auto;
     min-height: 600px;
     width: 740px;
-    border: 1px solid gray;
     display: none;
   }
   .content, .article-excerpt{

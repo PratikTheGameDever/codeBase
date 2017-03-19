@@ -11,8 +11,37 @@ function addArticles(){
   var ul = document.getElementById('articles-container'), art;
   for (var i = 0; i < 10; i++) {
     var art = new article();
-    ul.appendChild(createArticles(art));
+    articles.push(art);
+    ul.appendChild(createArticles(art, false));
   }
+}
+
+function callOnClick(article){
+  return function(){
+    createArticle(article);
+  };
+}
+
+function createArticle(article){
+  var a, time, h2,p, ele = document.getElementById('article-content');
+
+  a = createAndSetAttr('a',{class:'article-preview', title:'test', href:'#hello'+Math.random()});
+
+  time = createAndSetAttr('time',{class:'article-date', datetime: article.date});
+  setText(time, ['January', 'February', 'March', 'April','June','July','August','September','October','November','December'][article.date.getMonth()] + ' ' + article.date.getDate() + ', ' + article.date.getFullYear());
+
+  h2 = createAndSetAttr('h2',{class:'article-title'});
+  setText(h2, article.title);
+
+  p = createAndSetAttr('p', {class:'article-excerpt'});
+  setText(p, article.content);
+
+  a.appendChild(time);
+  a.appendChild(h2);
+  a.appendChild(p);
+  ele.innerHTML = '';
+  ele.appendChild(a);
+  ele.style.display = 'block';
 }
 
 function createArticles(article){
@@ -20,6 +49,7 @@ function createArticles(article){
 
   li = createAndSetAttr('li',{class:'article'});
   a = createAndSetAttr('a',{class:'article-preview', title:'test', href:'#hello'+Math.random()});
+  a.addEventListener("click", callOnClick(article));
 
   time = createAndSetAttr('time',{class:'article-date', datetime: article.date});
   setText(time, ['January', 'February', 'March', 'April','June','July','August','September','October','November','December'][article.date.getMonth()] + ' ' + article.date.getDate() + ', ' + article.date.getFullYear());
