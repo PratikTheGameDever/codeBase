@@ -1,24 +1,34 @@
+var articles = [];
+function article(){
+  this.date = new Date();
+  this.title = generateLoremIpsum(Math.random() * 6 + 5);
+  this.excerpt = generateLoremIpsum(Math.random() * 6 + 22) + '...';
+  this.content = generateLoremIpsum(Math.random() * 6 + 220) + '...';
+};
+
+
 function addArticles(){
-  var ul = document.getElementById('articles-container');
+  var ul = document.getElementById('articles-container'), art;
   for (var i = 0; i < 10; i++) {
-    ul.appendChild(createArticles());
+    var art = new article();
+    ul.appendChild(createArticles(art));
   }
 }
 
-function createArticles(){
-  var li, a, time, date = new Date(), h2,p;
+function createArticles(article){
+  var li, a, time, h2,p;
 
   li = createAndSetAttr('li',{class:'article'});
   a = createAndSetAttr('a',{class:'article-preview', title:'test', href:'#hello'+Math.random()});
 
-  time = createAndSetAttr('time',{class:'article-date', datetime: date});
-  setText(time, ['January', 'February', 'March', 'April','June','July','August','September','October','November','December'][date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear());
+  time = createAndSetAttr('time',{class:'article-date', datetime: article.date});
+  setText(time, ['January', 'February', 'March', 'April','June','July','August','September','October','November','December'][article.date.getMonth()] + ' ' + article.date.getDate() + ', ' + article.date.getFullYear());
 
   h2 = createAndSetAttr('h2',{class:'article-title'});
-  setText(h2, generateLoremIpsum(Math.random() * 6 + 5));
+  setText(h2, article.title);
 
   p = createAndSetAttr('p', {class:'article-excerpt'});
-  setText(p,generateLoremIpsum(Math.random() * 6 + 22) + '...');
+  setText(p, article.excerpt);
 
   a.appendChild(time);
   a.appendChild(h2);
