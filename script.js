@@ -23,9 +23,9 @@ function callOnClick(article){
 }
 
 function createArticle(article){
-  var a, time, h2,p, ele = document.getElementById('article-content');
+  var span, time, h2,p, ele = document.getElementById('article-content');
 
-  a = createAndSetAttr('a',{class:'article-preview', title:'test', href:'#hello'+Math.random()});
+  span = createAndSetAttr('span',{class:'article-preview', title:article.title});
 
   time = createAndSetAttr('time',{class:'article-date', datetime: article.date});
   setText(time, ['January', 'February', 'March', 'April','June','July','August','September','October','November','December'][article.date.getMonth()] + ' ' + article.date.getDate() + ', ' + article.date.getFullYear());
@@ -36,11 +36,11 @@ function createArticle(article){
   p = createAndSetAttr('p', {class:'article-excerpt'});
   setText(p, article.content);
 
-  a.appendChild(time);
-  a.appendChild(h2);
-  a.appendChild(p);
+  span.appendChild(time);
+  span.appendChild(h2);
+  span.appendChild(p);
   ele.innerHTML = '';
-  ele.appendChild(a);
+  ele.appendChild(span);
   ele.style.display = 'block';
 }
 
@@ -48,7 +48,7 @@ function createArticles(article){
   var li, a, time, h2,p;
 
   li = createAndSetAttr('li',{class:'article'});
-  a = createAndSetAttr('a',{class:'article-preview', title:'test', href:'#hello'+Math.random()});
+  a = createAndSetAttr('a',{class:'article-preview', title:article.title, href:'#hello'+Math.random()});
   a.addEventListener("click", callOnClick(article));
 
   time = createAndSetAttr('time',{class:'article-date', datetime: article.date});
